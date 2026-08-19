@@ -1,12 +1,66 @@
 export const metadata = {
   title: "Resumen",
   description:
-    "Qué es la stranded capacity, por qué nadie la ha documentado y el objetivo de este reporte.",
+    "Qué es la stranded capacity y cómo se pierde capacidad entre Facility, IT y Workload.",
 };
 
-# Resumen
+<section id="estructura-reporte" className="not-prose relative left-1/2 w-[min(calc(100vw-3rem),72rem)] -translate-x-1/2 scroll-mt-24 py-16 sm:py-20">
+  <div className="grid gap-6 md:grid-cols-3">
+    <article className="rounded-sm border border-forest-200 bg-white p-6">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        Facility
+      </p>
+      <h2 className="mt-3 font-serif text-2xl font-semibold text-forest-900">
+        Qué limita esta capa
+      </h2>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/80">
+        La infraestructura física fija el techo operativo: energía contratada,
+        cooling disponible, espacio, redundancia y restricciones del edificio.
+        Cuando esa base no acompaña la demanda real, parte del potencial queda
+        inmovilizado antes de llegar a los servidores.
+      </p>
+    </article>
 
-> **Página en construcción.**
-> Este espacio está reservado para el equipo. Reemplazá este bloque por el
-> contenido definitivo de la página: qué es la stranded capacity, por qué
-> importa ahora y qué vas a encontrar en el resto del reporte.
+    <article className="rounded-sm border border-forest-200 bg-white p-6">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        IT
+      </p>
+      <h2 className="mt-3 font-serif text-2xl font-semibold text-forest-900">
+        Qué capacidad queda varada
+      </h2>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/80">
+        La capacidad varada aparece cuando racks, servidores, GPU, memoria o red
+        existen y consumen presupuesto, pero no se convierten en cómputo útil.
+        Es capacidad instalada que todavía no logra sostener trabajo productivo.
+      </p>
+    </article>
+
+    <article className="rounded-sm border border-forest-200 bg-white p-6">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        Workload
+      </p>
+      <h2 className="mt-3 font-serif text-2xl font-semibold text-forest-900">
+        Qué observa el operador
+      </h2>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/80">
+        El operador ve señales dispersas: baja utilización, colas mal
+        balanceadas, reservas sin consumir, cargas que no calzan con la
+        infraestructura disponible y costos que crecen más rápido que el trabajo
+        entregado.
+      </p>
+    </article>
+  </div>
+</section>
+
+## De potencial nominal a capacidad desplegable
+
+La stranded capacity no es una falla aislada. Es la diferencia entre la
+capacidad que una organización cree tener y la capacidad que realmente puede
+desplegar cuando Facility, IT y Workload se coordinan como un sistema.
+
+<DownloadableChart
+  title="Índice de stranded capacity por capa"
+  filename="indice-stranded-capacity-por-capa"
+>
+  <StrandedCapacityIndexChart />
+</DownloadableChart>
