@@ -28,12 +28,17 @@ export default async function ReportPage({ params }: PageProps) {
     `@/content/report/${section.path}.mdx`
   );
 
-  return (
-    <>
-      {section.slug === "resumen" && <SummaryDashboard />}
+ return (
+  <>
+    {section.slug === "resumen" ? (
+      <SummaryDashboard>
+        <Content />
+      </SummaryDashboard>
+    ) : (
       <Content />
-    </>
-  );
+    )}
+  </>
+);
 }
 
 export function generateStaticParams() {

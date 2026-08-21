@@ -1,12 +1,251 @@
 export const metadata = {
   title: "Resumen",
   description:
-    "Qué es la stranded capacity, por qué nadie la ha documentado y el objetivo de este reporte.",
+    "Qué es la stranded capacity y cómo se pierde capacidad entre Facility, IT y Workload.",
 };
 
-# Resumen
+<section className="not-prose py-16 sm:py-20">
+  <div className="grid gap-6 md:grid-cols-3">
+    <article className="rounded-sm border border-forest-200 bg-white p-6">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        Facility
+      </p>
+      <h2 className="mt-3 font-serif text-2xl font-semibold text-forest-900">
+        Qué limita esta capa
+      </h2>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/80">
+        La infraestructura física fija el techo operativo: energía contratada,
+        cooling disponible, espacio, redundancia y restricciones del edificio.
+        Cuando esa base no acompaña la demanda real, parte del potencial queda
+        inmovilizado antes de llegar a los servidores.
+      </p>
+    </article>
 
-> **Página en construcción.**
-> Este espacio está reservado para el equipo. Reemplazá este bloque por el
-> contenido definitivo de la página: qué es la stranded capacity, por qué
-> importa ahora y qué vas a encontrar en el resto del reporte.
+    <article className="rounded-sm border border-forest-200 bg-white p-6">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        IT
+      </p>
+      <h2 className="mt-3 font-serif text-2xl font-semibold text-forest-900">
+        Qué capacidad queda varada
+      </h2>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/80">
+        La capacidad varada aparece cuando racks, servidores, GPU, memoria o red
+        existen y consumen presupuesto, pero no se convierten en cómputo útil.
+        Es capacidad instalada que todavía no logra sostener trabajo productivo.
+      </p>
+    </article>
+
+    <article className="rounded-sm border border-forest-200 bg-white p-6">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        Workload
+      </p>
+      <h2 className="mt-3 font-serif text-2xl font-semibold text-forest-900">
+        Qué observa el operador
+      </h2>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/80">
+        El operador ve señales dispersas: baja utilización, colas mal
+        balanceadas, reservas sin consumir, cargas que no calzan con la
+        infraestructura disponible y costos que crecen más rápido que el trabajo
+        entregado.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section className="not-prose border-t border-forest-100 py-16 sm:py-20">
+  <div className="mb-10 max-w-2xl">
+    <p className="font-mono text-xs uppercase tracking-[0.25em] text-gold-700">
+      Lectura operativa
+    </p>
+    <h2 className="mt-3 font-serif text-3xl font-semibold text-forest-900">
+      Lectura operativa por capa
+    </h2>
+    <p className="mt-4 text-base leading-relaxed text-forest-800/80">
+      Cada capa muestra una forma distinta de pérdida: restricciones físicas,
+      recursos técnicos en espera y trabajo que no logra calendarizarse sobre la
+      capacidad disponible.
+    </p>
+  </div>
+
+  <div className="grid gap-6 md:grid-cols-3">
+    <article className="rounded-sm border border-forest-200 bg-forest-50/70 p-6">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="font-mono text-[11px] uppercase tracking-widest text-forest-800/60">
+            Facility
+          </p>
+          <p className="mt-2 font-serif text-4xl font-semibold text-forest-900">
+            46.2%
+          </p>
+        </div>
+        <span className="rounded-sm border border-gold-500 bg-white px-3 py-1 font-mono text-xs font-semibold text-gold-700">
+          12.4 MW
+        </span>
+      </div>
+      <div className="mt-6 h-2 rounded-full bg-white">
+        <div className="h-2 w-[46%] rounded-full bg-forest-700" />
+      </div>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/75">
+        Pérdida asociada a energía, cooling y capacidad física que limita el
+        techo real de operación.
+      </p>
+    </article>
+
+    <article className="rounded-sm border border-forest-200 bg-forest-50/70 p-6">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="font-mono text-[11px] uppercase tracking-widest text-forest-800/60">
+            IT
+          </p>
+          <p className="mt-2 font-serif text-4xl font-semibold text-forest-900">
+            41.8%
+          </p>
+        </div>
+        <span className="rounded-sm border border-gold-500 bg-white px-3 py-1 font-mono text-xs font-semibold text-gold-700">
+          16.7 MW
+        </span>
+      </div>
+      <div className="mt-6 h-2 rounded-full bg-white">
+        <div className="h-2 w-[42%] rounded-full bg-forest-700" />
+      </div>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/75">
+        Capacidad técnica instalada que permanece encendida, financiada o
+        reservada sin producir cómputo útil.
+      </p>
+    </article>
+
+    <article className="rounded-sm border border-forest-200 bg-forest-50/70 p-6">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="font-mono text-[11px] uppercase tracking-widest text-forest-800/60">
+            Workload
+          </p>
+          <p className="mt-2 font-serif text-4xl font-semibold text-forest-900">
+            27.1%
+          </p>
+        </div>
+        <span className="rounded-sm border border-gold-500 bg-white px-3 py-1 font-mono text-xs font-semibold text-gold-700">
+          9.3 MW
+        </span>
+      </div>
+      <div className="mt-6 h-2 rounded-full bg-white">
+        <div className="h-2 w-[27%] rounded-full bg-forest-700" />
+      </div>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/75">
+        Ineficiencia visible en scheduling, reservas y cargas que no aprovechan
+        la infraestructura disponible.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section className="not-prose border-t border-forest-100 py-16 sm:py-20">
+  <div className="mb-8 max-w-2xl">
+    <h2 className="font-serif text-3xl font-semibold text-forest-900">
+      De potencial nominal a capacidad desplegable
+    </h2>
+    <p className="mt-4 text-base leading-relaxed text-forest-800/80">
+      La stranded capacity no es una falla aislada. Es la diferencia entre la
+      capacidad que una organización cree tener y la capacidad que realmente
+      puede desplegar cuando Facility, IT y Workload se coordinan como un
+      sistema.
+    </p>
+  </div>
+
+<DownloadableChart
+  title="Índice de stranded capacity por capa"
+  filename="indice-stranded-capacity-por-capa"
+>
+  <StrandedCapacityIndexChart />
+</DownloadableChart>
+</section>
+
+<section id="estructura-reporte" className="not-prose scroll-mt-24 border-t border-forest-100 py-16 sm:py-20">
+  <div className="mb-10 max-w-2xl">
+    <p className="font-mono text-xs uppercase tracking-[0.25em] text-gold-700">
+      Navegación
+    </p>
+    <h2 className="mt-3 font-serif text-3xl font-semibold text-forest-900">
+      Estructura del reporte
+    </h2>
+    <p className="mt-4 text-base leading-relaxed text-forest-800/80">
+      El reporte está organizado para pasar de una definición común a una
+      lectura por capas, cerrar con metodología y dejar una referencia citable
+      para compartir el documento.
+    </p>
+  </div>
+
+  <div className="grid gap-4 md:grid-cols-3">
+    <a href="/report/resumen" className="group rounded-sm border border-forest-200 bg-white p-5 transition-colors hover:border-forest-600">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        01 · Contexto
+      </p>
+      <h3 className="mt-2 font-serif text-xl font-semibold text-forest-900 group-hover:underline">
+        Resumen
+      </h3>
+      <p className="mt-3 text-sm leading-relaxed text-forest-800/75">
+        Qué problema nombra el reporte y por qué conviene leerlo como un sistema.
+      </p>
+    </a>
+
+    <a href="/report/facility" className="group rounded-sm border border-forest-200 bg-white p-5 transition-colors hover:border-forest-600">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        02 · Taxonomía
+      </p>
+      <h3 className="mt-2 font-serif text-xl font-semibold text-forest-900 group-hover:underline">
+        Facility
+      </h3>
+      <p className="mt-3 text-sm leading-relaxed text-forest-800/75">
+        Energía, cooling y restricciones físicas que condicionan la operación.
+      </p>
+    </a>
+
+    <a href="/report/it" className="group rounded-sm border border-forest-200 bg-white p-5 transition-colors hover:border-forest-600">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        03 · Taxonomía
+      </p>
+      <h3 className="mt-2 font-serif text-xl font-semibold text-forest-900 group-hover:underline">
+        IT
+      </h3>
+      <p className="mt-3 text-sm leading-relaxed text-forest-800/75">
+        Hardware, red y recursos provisionados que no llegan a trabajo útil.
+      </p>
+    </a>
+
+    <a href="/report/workload" className="group rounded-sm border border-forest-200 bg-white p-5 transition-colors hover:border-forest-600">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        04 · Taxonomía
+      </p>
+      <h3 className="mt-2 font-serif text-xl font-semibold text-forest-900 group-hover:underline">
+        Workload
+      </h3>
+      <p className="mt-3 text-sm leading-relaxed text-forest-800/75">
+        Scheduling, reservas y cargas que determinan la capacidad efectivamente desplegada.
+      </p>
+    </a>
+
+    <a href="/report/metodologia" className="group rounded-sm border border-forest-200 bg-white p-5 transition-colors hover:border-forest-600">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        05 · Método
+      </p>
+      <h3 className="mt-2 font-serif text-xl font-semibold text-forest-900 group-hover:underline">
+        Metodología
+      </h3>
+      <p className="mt-3 text-sm leading-relaxed text-forest-800/75">
+        Cómo se define, clasifica y compara la capacidad varada entre capas.
+      </p>
+    </a>
+
+    <a href="/report/citas" className="group rounded-sm border border-forest-200 bg-white p-5 transition-colors hover:border-forest-600">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        06 · Documento
+      </p>
+      <h3 className="mt-2 font-serif text-xl font-semibold text-forest-900 group-hover:underline">
+        Citas
+      </h3>
+      <p className="mt-3 text-sm leading-relaxed text-forest-800/75">
+        Referencias y formatos para citar o compartir el reporte.
+      </p>
+    </a>
+  </div>
+</section>

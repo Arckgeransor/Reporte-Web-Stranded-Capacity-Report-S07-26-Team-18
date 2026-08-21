@@ -26,6 +26,8 @@
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-source-serif: var(--font-source-serif-4), Georgia, "Times New Roman",
+    serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
   --font-plex: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
   --font-instrument: var(--font-instrument-sans), ui-sans-serif, system-ui,
