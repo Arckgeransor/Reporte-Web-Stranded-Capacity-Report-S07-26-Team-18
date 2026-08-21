@@ -4,9 +4,141 @@ export const metadata = {
     "Servidores y hardware encendidos que no ejecutan trabajo útil.",
 };
 
-# Capa IT: infraestructura
+<section className="not-prose relative left-1/2 w-[min(calc(100vw-3rem),72rem)] -translate-x-1/2 py-12 sm:py-16">
+  <p className="font-mono text-xs uppercase tracking-[0.3em] text-gold-700">
+    Capa 02 · IT
+  </p>
+  <h1 className="mt-5 max-w-3xl font-serif text-4xl font-semibold leading-tight text-forest-900 sm:text-5xl">
+    Infraestructura encendida que no produce cómputo útil
+  </h1>
+  <p className="mt-6 max-w-2xl text-lg leading-relaxed text-forest-800/80">
+    IT convierte el techo físico de Facility en capacidad técnica: servidores,
+    red, memoria, storage y pools listos para ejecutar workloads.
+  </p>
+</section>
 
-> **Página en construcción.**
-> Este espacio está reservado para el equipo. Reemplazá este bloque por el
-> contenido definitivo de la capa IT: servidores encendidos sin trabajo útil y
-> hardware provisionado sin uso.
+<section className="not-prose relative left-1/2 w-[min(calc(100vw-3rem),72rem)] -translate-x-1/2 border-y border-forest-100 py-12 sm:py-16">
+  <div className="grid gap-4 md:grid-cols-4">
+    <article className="rounded-sm border border-forest-200 bg-white p-5">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-forest-800/60">
+        Índice IT
+      </p>
+      <p className="mt-3 font-serif text-4xl font-semibold text-forest-900">
+        41.8%
+      </p>
+      <div className="mt-4 h-2 rounded-full bg-forest-50">
+        <div className="h-2 w-[42%] rounded-full bg-forest-700" />
+      </div>
+    </article>
+
+    <article className="rounded-sm border border-forest-200 bg-white p-5">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-forest-800/60">
+        Share
+      </p>
+      <p className="mt-3 font-serif text-4xl font-semibold text-forest-900">
+        16.7
+      </p>
+      <p className="mt-2 font-mono text-xs uppercase tracking-widest text-gold-700">
+        MW varados
+      </p>
+    </article>
+
+    <article className="rounded-sm border border-forest-200 bg-white p-5">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-forest-800/60">
+        Señal típica
+      </p>
+      <p className="mt-3 font-serif text-2xl font-semibold text-forest-900">
+        Idle persistente
+      </p>
+      <p className="mt-3 text-sm leading-relaxed text-forest-800/75">
+        Hosts listos, encendidos y sin trabajo medible.
+      </p>
+    </article>
+
+    <article className="rounded-sm border border-forest-200 bg-white p-5">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-forest-800/60">
+        Riesgo
+      </p>
+      <p className="mt-3 font-serif text-2xl font-semibold text-forest-900">
+        Capex hundido
+      </p>
+      <p className="mt-3 text-sm leading-relaxed text-forest-800/75">
+        Hardware comprado antes de existir demanda real.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section className="not-prose relative left-1/2 w-[min(calc(100vw-3rem),72rem)] -translate-x-1/2 py-12 sm:py-16">
+  <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+    <div className="rounded-sm border border-forest-200 bg-forest-50/70 p-6">
+      <p className="font-mono text-xs uppercase tracking-[0.25em] text-gold-700">
+        Lectura rápida
+      </p>
+      <h2 className="mt-3 font-serif text-3xl font-semibold text-forest-900">
+        Qué mirar en la capa IT
+      </h2>
+
+      <div className="mt-8 space-y-4">
+        <div className="flex items-center justify-between gap-4 border-b border-forest-200 pb-4">
+          <span className="font-mono text-xs uppercase tracking-widest text-forest-800/60">
+            CPU/GPU idle
+          </span>
+          <span className="font-serif text-2xl font-semibold text-forest-900">
+            40-60%
+          </span>
+        </div>
+        <div className="flex items-center justify-between gap-4 border-b border-forest-200 pb-4">
+          <span className="font-mono text-xs uppercase tracking-widest text-forest-800/60">
+            Pool ready sin tráfico
+          </span>
+          <span className="font-serif text-2xl font-semibold text-forest-900">
+            10-20%
+          </span>
+        </div>
+        <div className="flex items-center justify-between gap-4">
+          <span className="font-mono text-xs uppercase tracking-widest text-forest-800/60">
+            Utilización verificable
+          </span>
+          <span className="font-serif text-2xl font-semibold text-forest-900">
+            Baja
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <DownloadableChart
+      title="Índice de stranded capacity por capa"
+      filename="indice-stranded-capacity-it"
+    >
+      <StrandedCapacityIndexChart />
+    </DownloadableChart>
+  </div>
+</section>
+
+## Taxonomía de pérdidas IT
+
+<TaxonCard id="zombie-bare-metal" />
+
+<TaxonCard id="mothballed-blade" />
+
+<TaxonCard id="idle-pool" />
+
+<section className="not-prose relative left-1/2 w-[min(calc(100vw-3rem),72rem)] -translate-x-1/2 border-t border-forest-100 py-12 sm:py-16">
+  <div className="mb-8 max-w-2xl">
+    <p className="font-mono text-xs uppercase tracking-[0.25em] text-gold-700">
+      Costos visibles
+    </p>
+    <h2 className="mt-3 font-serif text-3xl font-semibold text-forest-900">
+      Dónde aparece el desperdicio
+    </h2>
+  </div>
+
+  <DownloadableChart
+    title="Breakdown estimado del costo anual"
+    filename="breakdown-costo-it"
+  >
+    <CostBreakdownChart />
+  </DownloadableChart>
+</section>
+

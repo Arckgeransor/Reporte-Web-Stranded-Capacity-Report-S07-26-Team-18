@@ -5,6 +5,8 @@ import { DownloadableChart } from "@/components/charts/downloadable-chart";
 import { StrandedCapacityIndexChart } from "@/components/charts/stranded-capacity-index";
 import { CostBreakdownChart } from "@/components/charts/cost-breakdown";
 import { Attribution } from "@/components/charts/attribution";
+import { AssignableCapacityStateChart } from "@/components/charts/assignable-capacity-state";
+import { DemandTowersByZoneChart } from "@/components/charts/demand-towers-by-zone";
 
 const components: MDXComponents = {
   TaxonCard,
@@ -13,6 +15,8 @@ const components: MDXComponents = {
   StrandedCapacityIndexChart,
   CostBreakdownChart,
   Attribution,
+  AssignableCapacityStateChart,
+  DemandTowersByZoneChart,
 };
 
 export function useMDXComponents(): MDXComponents {

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export function SummaryDashboard() {
+export function SummaryDashboard({ children }: { children: React.ReactNode }) {
   return (
     <div className="not-prose mx-auto max-w-6xl px-6">
       <section className="border-b border-forest-100 py-20 sm:py-28">
@@ -24,6 +24,7 @@ export function SummaryDashboard() {
           </Link>
         </div>
       </section>
+      {children}
     </div>
   );
 }

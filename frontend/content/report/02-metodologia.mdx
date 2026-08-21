@@ -1,11 +1,151 @@
 export const metadata = {
   title: "Metodología",
-  description: "Cómo se define, mide y clasifica la stranded capacity.",
+  description: "Cómo se construyó este reporte: datos, criterios y alcance.",
 };
 
-# Metodología
+<section className="not-prose py-16 sm:py-20">
+  <div className="mx-auto grid max-w-[1176px] grid-cols-1 gap-16 md:grid-cols-2">
+    <h1 className="font-source-serif text-[70px] font-bold leading-[68.6px] tracking-[-1.96px] text-forest-900">
+      Cómo se construyó este reporte
+    </h1>
+    <p className="font-instrument text-[20px] leading-[31px] text-forest-800">
+      La investigación reúne fuentes públicas sobre operación de data centers,
+      infraestructura de IA y programación de cargas. Los hallazgos se
+      organizaron en Facility, IT y Workload para explicar dónde puede
+      interrumpirse la conversión de capacidad.
+    </p>
+  </div>
+</section>
 
-> **Página en construcción.**
-> Este espacio está reservado para el equipo. Reemplazá este bloque por el
-> contenido definitivo: definición operativa, el índice de stranded capacity
-> (SC) y el sistema de clasificación por capas.
+<section className="not-prose border-t border-forest-100 py-16 sm:py-20">
+  <div className="grid grid-cols-1 gap-x-8 gap-y-12 px-6 sm:grid-cols-2 sm:px-8 lg:grid-cols-4 lg:px-[154.5px]">
+    <div>
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        01
+      </p>
+      <h2 className="mt-3 font-serif text-2xl font-semibold text-forest-900">
+        Seleccionar fuentes
+      </h2>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/80">
+        Reunimos fuentes públicas de telemetría de servidores, consumo
+        energético, capacidad instalada y carga de trabajo ejecutada.
+      </p>
+    </div>
+
+    <div>
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        02
+      </p>
+      <h2 className="mt-3 font-serif text-2xl font-semibold text-forest-900">
+        Extraer señales
+      </h2>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/80">
+        Identificamos patrones de utilización, colas mal balanceadas, reservas
+        sin consumir y cargas no calendarizadas.
+      </p>
+    </div>
+
+    <div>
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        03
+      </p>
+      <h2 className="mt-3 font-serif text-2xl font-semibold text-forest-900">
+        Organizar por capa
+      </h2>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/80">
+        Clasificamos los hallazgos en Facility, IT y Workload para ubicar dónde
+        se interrumpe la conversión de capacidad.
+      </p>
+    </div>
+
+    <div>
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        04
+      </p>
+      <h2 className="mt-3 font-serif text-2xl font-semibold text-forest-900">
+        Contrastar y limitar
+      </h2>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/80">
+        Comparamos la capacidad instalada frente a la efectivamente desplegada y
+        acotamos el alcance según la calidad de los datos.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section className="not-prose border-t border-forest-100 py-16 sm:py-20">
+  <div className="mx-auto grid max-w-[1176px] grid-cols-1 gap-16 md:grid-cols-2">
+    <h3 className="font-instrument font-medium text-[23px] leading-[34.03px] tracking-normal text-forest-900">
+      La taxonomía es un marco de lectura propuesto para este reporte
+    </h3>
+    <p className="font-instrument text-[18px] leading-[30px] text-forest-800">
+      No existe una fórmula pública y universal que convierta todas las
+      restricciones del data center en un único porcentaje de stranded capacity.
+      Por eso el reporte compara señales, consecuencias y causas sin reducir el
+      fenómeno a un único índice.
+    </p>
+  </div>
+</section>
+
+<section className="not-prose border-t border-forest-100 py-16 sm:py-20">
+  <div className="mx-auto grid max-w-[1176px] grid-cols-1 gap-x-[72px] gap-y-12 md:grid-cols-2">
+    <div className="border-t border-forest-100 pt-[22px]">
+      <p className="font-plex text-[12px] font-medium uppercase leading-[100%] tracking-[0.6px] text-[#00603A]">
+        Límites y alcance
+      </p>
+      <p className="mt-5 text-base leading-relaxed text-forest-800/80">
+        Los resultados dependen de la calidad de los datos disponibles y del
+        período analizado. Este reporte busca ser un punto de partida, no una
+        auditoría exhaustiva.
+      </p>
+    </div>
+
+    <div className="border-t border-forest-100 pt-[22px]">
+      <p className="font-plex text-[12px] font-medium uppercase leading-[100%] tracking-[0.6px] text-[#00603A]">
+        Fuentes y datos
+      </p>
+      <p className="mt-5 text-base leading-relaxed text-forest-800/80">
+        Partimos de fuentes de datos disponibles: telemetría de utilización de
+        servidores, consumo energético, capacidad instalada y carga de trabajo
+        ejecutada.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section className="not-prose py-16 sm:py-20">
+  <div className="grid grid-cols-1 px-6 sm:px-8 lg:px-[154.5px]">
+    <div className="border-t border-forest-100 py-6">
+      <p className="font-instrument text-[15px] font-semibold leading-[21px] text-forest-900">
+        Criterios de las fuentes
+      </p>
+      <p className="mt-2 font-instrument text-[15.5px] leading-[25px] text-forest-800/80">
+        Priorizamos fuentes públicas y verificables sobre operación de data
+        centers, infraestructura de IA y programación de cargas; se descartan
+        estimaciones sin respaldo.
+      </p>
+    </div>
+
+    <div className="border-t border-forest-100 py-6">
+      <p className="font-instrument text-[15px] font-semibold leading-[21px] text-forest-900">
+        Datos cuantitativos
+      </p>
+      <p className="mt-2 font-instrument text-[15.5px] leading-[25px] text-forest-800/80">
+        Telemetría de utilización de servidores, consumo energético, capacidad
+        instalada y carga de trabajo ejecutada, comparadas contra la capacidad
+        total disponible.
+      </p>
+    </div>
+
+    <div className="border-t border-forest-100 py-6">
+      <p className="font-instrument text-[15px] font-semibold leading-[21px] text-forest-900">
+        Interpretación
+      </p>
+      <p className="mt-2 font-instrument text-[15.5px] leading-[25px] text-forest-800/80">
+        Los hallazgos se leen por capa (Facility, IT y Workload), comparando
+        señales, consecuencias y causas sin reducir el fenómeno a un único
+        índice.
+      </p>
+    </div>
+  </div>
+</section>

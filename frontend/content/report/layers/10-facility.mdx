@@ -4,9 +4,195 @@ export const metadata = {
     "Stranded capacity en la infraestructura física: energía y enfriamiento.",
 };
 
-# Capa Facility: energía y cooling
+<section className="not-prose relative left-1/2 w-[min(calc(100vw-3rem),72rem)] -translate-x-1/2 py-12 sm:py-16">
+  <p className="font-mono text-xs uppercase tracking-[0.3em] text-gold-700">
+    Capa 01 · Facility
+  </p>
+  <h1 className="mt-5 max-w-3xl font-serif text-4xl font-semibold leading-tight text-forest-900 sm:text-5xl">
+    Energía y cooling como primer límite operativo
+  </h1>
+  <p className="mt-6 max-w-3xl text-lg leading-relaxed text-forest-800/80">
+    La capa Facility define cuánta capacidad puede llegar, físicamente, al
+    cómputo. Antes de hablar de servidores o workloads, el sitio ya está
+    condicionado por energía contratada, distribución eléctrica, cooling,
+    redundancia, espacio y márgenes térmicos.
+  </p>
+</section>
 
-> **Página en construcción.**
-> Este espacio está reservado para el equipo. Reemplazá este bloque por el
-> contenido definitivo de la capa Facility: energía contratada sin consumir,
-> cooling sobredimensionado y reservas de infraestructura física.
+<section className="not-prose relative left-1/2 w-[min(calc(100vw-3rem),72rem)] -translate-x-1/2 border-y border-forest-100 py-12 sm:py-16">
+  <div className="grid gap-6 md:grid-cols-3">
+    <article className="rounded-sm border border-forest-200 bg-white p-6">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        Qué limita esta capa
+      </p>
+      <h2 className="mt-3 font-serif text-2xl font-semibold text-forest-900">
+        El techo físico del sitio
+      </h2>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/80">
+        Facility limita por potencia disponible, distribución eléctrica,
+        capacidad térmica, presión de aire, espacio útil y márgenes de
+        redundancia que no siempre acompañan la demanda real.
+      </p>
+    </article>
+
+    <article className="rounded-sm border border-forest-200 bg-white p-6">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        Qué queda varado
+      </p>
+      <h2 className="mt-3 font-serif text-2xl font-semibold text-forest-900">
+        MW pagados sin trabajo útil
+      </h2>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/80">
+        Queda varada la capacidad energética y térmica que se contrata, reserva
+        o enfría, pero que no llega a transformarse en cómputo productivo por
+        diseño conservador o desacople con IT.
+      </p>
+    </article>
+
+    <article className="rounded-sm border border-forest-200 bg-white p-6">
+      <p className="font-mono text-[11px] uppercase tracking-widest text-gold-700">
+        Qué observa el operador
+      </p>
+      <h2 className="mt-3 font-serif text-2xl font-semibold text-forest-900">
+        Señales físicas dispersas
+      </h2>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/80">
+        El operador ve baja carga contra capacidad contratada, cooling activo en
+        rangos medios, setpoints conservadores, ciclos cortos y márgenes que se
+        sostienen por seguridad aunque no produzcan throughput.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section className="not-prose relative left-1/2 w-[min(calc(100vw-3rem),72rem)] -translate-x-1/2 py-12 sm:py-16">
+  <div className="mb-10 max-w-2xl">
+    <p className="font-mono text-xs uppercase tracking-[0.25em] text-gold-700">
+      Lectura operativa
+    </p>
+    <h2 className="mt-3 font-serif text-3xl font-semibold text-forest-900">
+      Indicadores de capacidad varada en Facility
+    </h2>
+    <p className="mt-4 text-base leading-relaxed text-forest-800/80">
+      Estos valores funcionan como una interfaz resumida para leer dónde se
+      pierde capacidad antes de que llegue a la capa IT.
+    </p>
+  </div>
+
+  <div className="grid gap-6 md:grid-cols-3">
+    <article className="rounded-sm border border-forest-200 bg-forest-50/70 p-6">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="font-mono text-[11px] uppercase tracking-widest text-forest-800/60">
+            Reserva estática
+          </p>
+          <p className="mt-2 font-serif text-4xl font-semibold text-forest-900">
+            46.2%
+          </p>
+        </div>
+        <span className="rounded-sm border border-gold-500 bg-white px-3 py-1 font-mono text-xs font-semibold text-gold-700">
+          Alto
+        </span>
+      </div>
+      <div className="mt-6 h-2 rounded-full bg-white">
+        <div className="h-2 w-[46%] rounded-full bg-forest-700" />
+      </div>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/75">
+        Capacidad eléctrica disponible que permanece reservada para picos poco
+        frecuentes.
+      </p>
+    </article>
+
+    <article className="rounded-sm border border-forest-200 bg-forest-50/70 p-6">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="font-mono text-[11px] uppercase tracking-widest text-forest-800/60">
+            Margen térmico
+          </p>
+          <p className="mt-2 font-serif text-4xl font-semibold text-forest-900">
+            35%
+          </p>
+        </div>
+        <span className="rounded-sm border border-gold-500 bg-white px-3 py-1 font-mono text-xs font-semibold text-gold-700">
+          Medio
+        </span>
+      </div>
+      <div className="mt-6 h-2 rounded-full bg-white">
+        <div className="h-2 w-[35%] rounded-full bg-forest-700" />
+      </div>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/75">
+        Cooling operando por debajo del setpoint necesario para proteger cargas
+        que podrían tolerar más variación.
+      </p>
+    </article>
+
+    <article className="rounded-sm border border-forest-200 bg-forest-50/70 p-6">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="font-mono text-[11px] uppercase tracking-widest text-forest-800/60">
+            Deadband
+          </p>
+          <p className="mt-2 font-serif text-4xl font-semibold text-forest-900">
+            15%
+          </p>
+        </div>
+        <span className="rounded-sm border border-gold-500 bg-white px-3 py-1 font-mono text-xs font-semibold text-gold-700">
+          Medio
+        </span>
+      </div>
+      <div className="mt-6 h-2 rounded-full bg-white">
+        <div className="h-2 w-[15%] rounded-full bg-forest-700" />
+      </div>
+      <p className="mt-4 text-sm leading-relaxed text-forest-800/75">
+        Ineficiencia generada por ciclos de cooling que reaccionan tarde o en
+        bloques demasiado grandes.
+      </p>
+    </article>
+  </div>
+</section>
+
+## Taxonomía de pérdidas Facility
+
+La pérdida de capacidad en Facility suele verse como margen operativo sano,
+pero puede esconder energía contratada sin uso, enfriamiento excesivamente
+conservador o controles térmicos que degradan eficiencia en cargas medias.
+
+<TaxonCard id="static-reserve" />
+
+<TaxonCard id="thermal-throttle-gap" />
+
+<TaxonCard id="cooling-deadband" />
+
+## Impacto económico relacionado
+
+Facility no concentra todo el costo de la stranded capacity, pero sí habilita
+una parte relevante del desperdicio: energía pagada sin consumir, cooling
+sobredimensionado y decisiones de infraestructura física que se arrastran hacia
+IT y Workload.
+
+<DownloadableChart
+  title="Componentes estimados del costo anual"
+  filename="componentes-costo-facility"
+>
+  <CostBreakdownChart />
+</DownloadableChart>
+
+{/* <section className="not-prose my-12 rounded-sm border border-forest-200 bg-forest-900 p-6 text-white">
+  <p className="font-mono text-[11px] uppercase tracking-widest text-gold-500">
+    Próxima capa
+  </p>
+  <h2 className="mt-3 font-serif text-2xl font-semibold text-white">
+    De Facility a IT
+  </h2>
+  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/75">
+    Una vez que la infraestructura física fija el techo, la capa IT define
+    cuánto de esa capacidad llega realmente a servidores, red, memoria y pools
+    de cómputo.
+  </p>
+  <a
+    href="/report/it"
+    className="mt-5 inline-flex font-mono text-xs font-semibold uppercase tracking-widest text-gold-500 underline underline-offset-4"
+  >
+    Continuar a IT →
+  </a>
+</section> */}

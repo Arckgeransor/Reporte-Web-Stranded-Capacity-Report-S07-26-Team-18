@@ -5,6 +5,7 @@ import {
   IBM_Plex_Mono,
   Instrument_Sans,
   Newsreader,
+  Source_Serif_4,
 } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
@@ -38,6 +39,11 @@ const instrumentSans = Instrument_Sans({
   weight: ["400", "500", "600"],
 });
 
+const sourceSerif4 = Source_Serif_4({
+  variable: "--font-source-serif-4",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: {
     default: "PhysaFlow — The Stranded Capacity Report",
@@ -55,7 +61,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} ${ibmPlexMono.variable} ${instrumentSans.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} ${ibmPlexMono.variable} ${instrumentSans.variable} ${sourceSerif4.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Header />

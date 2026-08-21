@@ -4,9 +4,106 @@ export const metadata = {
     "Cómo la planificación de cargas deja ciclos de cómputo sin asignar.",
 };
 
-# Capa Workload: scheduling
+<section className="not-prose relative left-1/2 w-[min(calc(100vw-3rem),72rem)] -translate-x-1/2 py-12 sm:py-16">
+  <p className="font-mono text-xs uppercase tracking-[0.3em] text-gold-700">
+    Capa 03 · Workload
+  </p>
+  <h1 className="mt-5 max-w-3xl font-serif text-4xl font-semibold leading-tight text-forest-900 sm:text-5xl">
+    Scheduling, demanda y capacidad que no logra asignarse
+  </h1>
+  <p className="mt-6 max-w-3xl text-lg leading-relaxed text-forest-800/80">
+    Workload es la capa donde la capacidad deja de ser una promesa técnica y se
+    convierte, o no, en ejecución real. Facility puede entregar energía e IT
+    puede mantener servidores listos, pero si las cargas no calzan con los
+    recursos disponibles, la capacidad queda atrapada en colas, reservas,
+    prioridades y fragmentos que nadie puede usar.
+  </p>
+</section>
 
-> **Página en construcción.**
-> Este espacio está reservado para el equipo. Reemplazá este bloque por el
-> contenido definitivo de la capa Workload: planificación de cargas que deja
-> ciclos sin asignar y reservas que nunca se consumen.
+## La capa donde la capacidad se vuelve asignable
+
+En Facility se define el techo físico. En IT se prepara la infraestructura. En
+Workload aparece una pregunta más incómoda: ¿esa capacidad puede asignarse a una
+carga concreta en el momento correcto?
+
+La respuesta no depende sólo de cuántos recursos estén libres. Depende de la
+forma de la demanda, de los tamaños de jobs, de la necesidad de bloques
+contiguos, de las prioridades internas y de las reservas que cada equipo cree
+necesitar para proteger su operación. Por eso una flota puede mostrar capacidad
+disponible en el agregado y, al mismo tiempo, rechazar o retrasar trabajos que
+requieren combinaciones específicas de GPU, memoria, red o ventanas de tiempo.
+
+<DownloadableChart
+  title="Estado de la capacidad asignable"
+  filename="estado-capacidad-asignable"
+>
+  <AssignableCapacityStateChart />
+</DownloadableChart>
+
+## Fragmentación: cuando lo libre no alcanza
+
+La fragmentación es una de las formas más difíciles de explicar porque, vista
+desde arriba, parece capacidad libre. El problema es que no toda capacidad libre
+es asignable. Un cluster puede tener muchas GPUs sin usar, pero distribuidas en
+pares sueltos, nodos incompletos o zonas con restricciones de red. Si el job
+necesita ocho GPUs juntas, esos fragmentos no sirven aunque la suma total sea
+mayor que ocho.
+
+Este fenómeno vuelve engañosas algunas métricas promedio. Una utilización
+agregada aceptable puede convivir con colas largas, cancelaciones manuales,
+reintentos y reservas preventivas. El operador no ve una única falla: ve un
+conjunto de fricciones pequeñas que impiden convertir recursos disponibles en
+trabajo terminado.
+
+## Reservas, cuotas y demanda por zonas
+
+La demanda tampoco llega de forma pareja. Algunos equipos ejecutan cargas
+interactivas, otros corren batch nocturno, otros reservan capacidad para picos
+que aparecen pocas veces. Cuando esas formas de demanda se mezclan sin una
+lectura por zona, el scheduler empieza a proteger grupos, colas o namespaces
+aun cuando parte de esa reserva no esté produciendo.
+
+El resultado es una topología de demanda desigual: zonas calientes donde falta
+capacidad útil, zonas templadas con recursos subutilizados y zonas protegidas
+por cuotas que no siempre se consumen. Para entender stranded capacity en
+Workload hay que mirar esas torres de demanda, no sólo el porcentaje global de
+uso.
+
+<DownloadableChart
+  title="Torres de demanda divididas por zonas"
+  filename="torres-demanda-por-zonas"
+>
+  <DemandTowersByZoneChart />
+</DownloadableChart>
+
+## Patrones que suelen producir capacidad varada
+
+**Scheduling Fragmentation** aparece cuando la capacidad existe, pero queda
+partida en bloques demasiado pequeños para los trabajos reales. El scheduler
+puede marcar recursos como libres, aunque ningún job importante pueda tomar esos
+fragmentos sin reordenar el cluster.
+
+**Gang Quota Ghost** ocurre cuando las cuotas siguen reservando recursos para
+equipos, colas o namespaces que ya no consumen al ritmo esperado. La capacidad
+queda protegida por una regla organizacional, no por una necesidad operativa
+actual.
+
+**Tail-Latency Reserve** protege percentiles extremos de latencia con capacidad
+que permanece ociosa la mayor parte del día. El costo no aparece como un error:
+aparece como prudencia operativa, hasta que se mide cuánto cómputo queda retenido
+para defender un pico breve.
+
+## Qué debe observar el operador
+
+El operador no debería mirar sólo utilización promedio. En Workload importan las
+preguntas de asignabilidad: qué parte de lo libre puede recibir un job real,
+cuánto está bloqueado por cuota, cuánto está fragmentado y qué zonas concentran
+demanda que no se puede mover.
+
+Una lectura útil combina señales de cola, tamaño de jobs, distribución por zona,
+reservas por equipo y capacidad contigua disponible. Cuando esas señales se
+observan juntas, la stranded capacity deja de parecer un número abstracto y se
+vuelve una lista concreta de decisiones: compactar, liberar cuotas, mover cargas,
+relajar reservas o rediseñar la política de scheduling.
+
+
